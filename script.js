@@ -11,7 +11,7 @@
       const heroEl = document.getElementById("heroSubs");
 
       let startCount = 0;
-      const heroEnd = 1000;
+      const heroEnd = 7900;
       const increment = Math.ceil(heroEnd / 60);
       const counter = setInterval(() => {
         startCount = Math.min(startCount + increment, heroEnd);
