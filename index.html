@@ -1,0 +1,796 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TechnoHub — Technology Reimagined</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Orbitron:wght@700;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    />
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <!-- ─── THEME MODAL ─── -->
+    <div
+      class="theme-overlay"
+      id="themeOverlay"
+      onclick="closeThemeOverlay(event)"
+    >
+      <div class="theme-modal">
+        <div class="theme-modal-hdr">
+          <h3>Choose Theme</h3>
+          <button class="modal-close-btn" onclick="toggleThemeModal()">
+            <i class="fas fa-times"></i>
+          </button>
+        </div>
+        <div class="modal-theme-grid">
+          <div
+            class="modal-theme-opt active"
+            id="mopt-cyber"
+            onclick="applyTheme('cyber', this)"
+          >
+            <div class="mcheck"><i class="fas fa-check"></i></div>
+            <div class="modal-swatches">
+              <div class="modal-sw" style="background: #00d4ff"></div>
+              <div class="modal-sw" style="background: #7b2fff"></div>
+              <div class="modal-sw" style="background: #050a14"></div>
+            </div>
+            <div class="modal-tname">Cyber Blue</div>
+            <div class="modal-tsub">Default · Electric · Dark</div>
+          </div>
+          <div
+            class="modal-theme-opt"
+            id="mopt-neon"
+            onclick="applyTheme('neon', this)"
+          >
+            <div class="mcheck"><i class="fas fa-check"></i></div>
+            <div class="modal-swatches">
+              <div class="modal-sw" style="background: #ff2d6e"></div>
+              <div class="modal-sw" style="background: #ff6b35"></div>
+              <div class="modal-sw" style="background: #0a0a0a"></div>
+            </div>
+            <div class="modal-tname">Neon Red</div>
+            <div class="modal-tsub">Vivid · Bold · Hot</div>
+          </div>
+          <div
+            class="modal-theme-opt"
+            id="mopt-deep"
+            onclick="applyTheme('deep', this)"
+          >
+            <div class="mcheck"><i class="fas fa-check"></i></div>
+            <div class="modal-swatches">
+              <div class="modal-sw" style="background: #7b2fff"></div>
+              <div class="modal-sw" style="background: #00d4ff"></div>
+              <div class="modal-sw" style="background: #0a1628"></div>
+            </div>
+            <div class="modal-tname">Deep Space</div>
+            <div class="modal-tsub">Cosmic · Purple · Immersive</div>
+          </div>
+          <div
+            class="modal-theme-opt"
+            id="mopt-green"
+            onclick="applyTheme('green', this)"
+          >
+            <div class="mcheck"><i class="fas fa-check"></i></div>
+            <div class="modal-swatches">
+              <div class="modal-sw" style="background: #00ff88"></div>
+              <div class="modal-sw" style="background: #00ccaa"></div>
+              <div class="modal-sw" style="background: #041a0a"></div>
+            </div>
+            <div class="modal-tname">Matrix Green</div>
+            <div class="modal-tsub">Hacker · Mint · Retro</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ─── NAVBAR ─── -->
+    <nav id="navbar">
+      <a class="nav-logo" href="#hero">
+        <div class="logo-icon"><i class="fas fa-bolt"></i></div>
+        <span class="logo-text">TechnoHub</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#theme">Theme</a></li>
+        <li><a href="#videos">Videos</a></li>
+        <li><a href="#features">Features</a></li>
+        <li><a href="#about">About</a></li>
+        <li><a href="#team">Team</a></li>
+        <li><a href="#membership">Membership</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+
+      <div class="nav-right">
+        <div class="search-bar">
+          <i class="fas fa-search"></i>
+          <input type="text" placeholder="Search videos..." id="searchInput" />
+        </div>
+        <button
+          class="theme-toggle-btn"
+          onclick="toggleThemeModal()"
+          title="Change theme"
+        >
+          <i class="fas fa-palette"></i>
+          <span>Theme</span>
+        </button>
+        <button
+          class="btn-subscribe"
+          onclick="
+            window.open('https://www.youtube.com/@TechnoHub04', '_blank')
+          "
+        >
+          <i class="fab fa-youtube"></i> Subscribe
+          <link rel="stylesheet" href="https://www.youtube.com/@TechnoHub04" />
+        </button>
+        <div class="hamburger" onclick="toggleMenu()">
+          <span></span><span></span><span></span>
+        </div>
+      </div>
+    </nav>
+
+    <!-- ─── HERO ─── -->
+    <section id="hero">
+      <div class="hero-orb orb1"></div>
+      <div class="hero-orb orb2"></div>
+      <div class="hero-orb orb3"></div>
+
+      <div class="hero-content">
+        <div class="hero-badge">
+          <div class="badge-dot"></div>
+          Now Live · New Videos Weekly
+        </div>
+        <h1 class="hero-title">
+          <span class="title-gradient">TECHNO</span><br />HUB
+        </h1>
+        <p class="hero-sub">
+          Your ultimate destination for cutting-edge tech tutorials, reviews,
+          and deep dives into the future of technology.
+        </p>
+        <div class="hero-cta">
+          <button
+            class="btn-primary"
+            onclick="
+              window.open('https://www.youtube.com/@TechnoHub04', '_blank')
+            "
+          >
+            <i class="fab fa-youtube"></i> Watch Now
+          </button>
+          <button
+            class="btn-outline"
+            onclick="document.getElementById('videos').scrollIntoView()"
+          >
+            <i class="fas fa-play"></i> Browse Videos
+          </button>
+        </div>
+        <div class="hero-stats">
+          <div class="stat-item">
+            <span class="stat-number" id="heroSubs">8,000+</span>
+            <span class="stat-label">Subscribers</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">150+</span>
+            <span class="stat-label">Videos</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">3M+</span>
+            <span class="stat-label">Views</span>
+          </div>
+          <div class="stat-item">
+            <span class="stat-number">98%</span>
+            <span class="stat-label">Satisfaction</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sub-ticker">
+        <i class="fas fa-users ticker-icon"></i>
+        <span class="ticker-num" id="liveCount">8,000</span>
+        <div>
+          <div class="ticker-label">Subscribers & Growing</div>
+        </div>
+        <i
+          class="fas fa-arrow-trend-up"
+          style="color: var(--accent); font-size: 0.9rem"
+        ></i>
+      </div>
+    </section>
+
+    <!-- ─── THEME SECTION ─── -->
+    <section id="theme">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Customize</span>
+          <h2 class="section-title">
+            Choose Your <span style="color: var(--accent)">Theme</span>
+          </h2>
+          <p class="section-desc">
+            Personalize your viewing experience with our curated visual themes.
+          </p>
+          <div class="accent-line"></div>
+        </div>
+        <div class="theme-grid reveal">
+          <div class="theme-card t1 active" onclick="setTheme('cyber', this)">
+            <div class="theme-preview">
+              <div class="color-dot" style="background: #00d4ff"></div>
+              <div class="color-dot" style="background: #7b2fff"></div>
+              <div class="color-dot" style="background: #050a14"></div>
+            </div>
+            <div class="theme-name">Cyber Blue</div>
+            <div class="theme-desc-sm">Default · Dark · Electric</div>
+          </div>
+          <div class="theme-card t2" onclick="setTheme('neon', this)">
+            <div class="theme-preview">
+              <div class="color-dot" style="background: #ff2d6e"></div>
+              <div class="color-dot" style="background: #ff6b35"></div>
+              <div class="color-dot" style="background: #0a0a0a"></div>
+            </div>
+            <div class="theme-name">Neon Red</div>
+            <div class="theme-desc-sm">Vivid · Bold · Intense</div>
+          </div>
+          <div class="theme-card t3" onclick="setTheme('deep', this)">
+            <div class="theme-preview">
+              <div class="color-dot" style="background: #7b2fff"></div>
+              <div class="color-dot" style="background: #00d4ff"></div>
+              <div class="color-dot" style="background: #0a1628"></div>
+            </div>
+            <div class="theme-name">Deep Space</div>
+            <div class="theme-desc-sm">Cosmic · Purple · Immersive</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── VIDEOS SECTION ─── -->
+    <section id="videos">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Content</span>
+          <h2 class="section-title">
+            Latest <span style="color: var(--accent)">Videos</span>
+          </h2>
+          <p class="section-desc">
+            All videos from TechnoHub — click any video to watch on YouTube.
+          </p>
+          <div class="accent-line"></div>
+        </div>
+
+        <div class="video-tabs reveal" id="videoTabs">
+          <button class="tab-btn active" onclick="filterVideos('all', this)">All Videos</button>
+          <button class="tab-btn" onclick="filterVideos('shorts', this)">Shorts</button>
+          <button class="tab-btn" onclick="filterVideos('long', this)">Full Videos</button>
+        </div>
+
+        <!-- Loading state -->
+        <div id="videosLoading" style="text-align:center;padding:4rem 0;">
+          <div style="display:inline-flex;align-items:center;gap:12px;background:rgba(0,212,255,0.05);border:1px solid var(--border);border-radius:50px;padding:14px 28px;">
+            <i class="fas fa-spinner fa-spin" style="color:var(--accent);font-size:1.2rem;"></i>
+            <span style="color:var(--text-muted);font-size:0.9rem;letter-spacing:1px;">Loading videos from YouTube...</span>
+          </div>
+        </div>
+
+        <!-- Error state -->
+        <div id="videosError" style="display:none;text-align:center;padding:3rem 0;">
+          <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:2.5rem;max-width:500px;margin:0 auto;">
+            <i class="fab fa-youtube" style="font-size:3rem;color:var(--accent2);margin-bottom:1rem;display:block;"></i>
+            <p style="color:var(--text-muted);margin-bottom:1.5rem;line-height:1.7;">To show live videos, add your YouTube Data API key below. Get one free at <a href="https://console.cloud.google.com/" target="_blank" style="color:var(--accent);">Google Cloud Console</a>.</p>
+            <div style="display:flex;gap:8px;margin-bottom:1rem;">
+              <input id="apiKeyInput" type="text" placeholder="Paste your YouTube API key here..." style="flex:1;background:rgba(0,212,255,0.04);border:1px solid var(--border);border-radius:10px;padding:10px 14px;color:var(--text-primary);font-family:var(--font-body);font-size:0.88rem;outline:none;" />
+              <button onclick="saveApiKey()" style="background:linear-gradient(135deg,var(--accent),var(--accent3));border:none;border-radius:10px;padding:10px 18px;color:#000;font-weight:700;cursor:pointer;white-space:nowrap;">Load</button>
+            </div>
+            <p style="font-size:0.75rem;color:var(--text-muted);">Or <a href="https://www.youtube.com/@TechnoHub04/videos" target="_blank" style="color:var(--accent);">browse all videos directly on YouTube →</a></p>
+          </div>
+        </div>
+
+        <div class="videos-grid reveal" id="videosGrid" style="display:none;"></div>
+
+        <!-- Load more -->
+        <div id="loadMoreWrap" style="display:none;text-align:center;margin-top:2.5rem;">
+          <button onclick="loadMoreVideos()" style="background:rgba(0,212,255,0.08);border:1px solid var(--accent);border-radius:30px;padding:12px 32px;color:var(--accent);font-family:var(--font-body);font-size:0.88rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:all 0.3s;" onmouseover="this.style.background='rgba(0,212,255,0.18)'" onmouseout="this.style.background='rgba(0,212,255,0.08)'">
+            <i class="fas fa-plus" style="margin-right:8px;"></i>Load More Videos
+          </button>
+          <div style="margin-top:1rem;">
+            <a href="https://www.youtube.com/@TechnoHub04/videos" target="_blank" style="color:var(--text-muted);font-size:0.82rem;text-decoration:none;letter-spacing:1px;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">
+              <i class="fab fa-youtube" style="margin-right:6px;"></i>View All on YouTube
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    
+
+    <!-- ─── FEATURES SECTION ─── -->
+    <section id="features">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Why TechnoHub</span>
+          <h2 class="section-title">
+            Packed With <span style="color: var(--accent)">Features</span>
+          </h2>
+          <p class="section-desc">
+            Everything you need to stay ahead in the fast-moving world of
+            technology.
+          </p>
+          <div class="accent-line"></div>
+        </div>
+        <div class="features-grid reveal">
+          <div class="feature-card">
+            <div class="feature-icon fi1">
+              <i class="fas fa-rocket" style="color: var(--accent)"></i>
+            </div>
+            <div class="feature-title">Weekly Releases</div>
+            <div class="feature-desc">
+              Fresh content every week covering the hottest topics in tech, AI,
+              and development.
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon fi2">
+              <i
+                class="fas fa-graduation-cap"
+                style="color: var(--accent2)"
+              ></i>
+            </div>
+            <div class="feature-title">Expert Tutorials</div>
+            <div class="feature-desc">
+              Step-by-step guides crafted by industry professionals for all
+              skill levels.
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon fi3">
+              <i class="fas fa-microchip" style="color: var(--accent3)"></i>
+            </div>
+            <div class="feature-title">Deep Tech Dives</div>
+            <div class="feature-desc">
+              Go beyond the surface with in-depth explorations of emerging
+              technologies.
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon fi4">
+              <i class="fas fa-users" style="color: var(--accent)"></i>
+            </div>
+            <div class="feature-title">Active Community</div>
+            <div class="feature-desc">
+              Join 8,000+ techies in our comment sections and stay connected on Instagram.
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon fi5">
+              <i class="fas fa-star" style="color: #ff6b35"></i>
+            </div>
+            <div class="feature-title">Exclusive Content</div>
+            <div class="feature-desc">
+              Members-only videos, source code downloads, and behind-the-scenes
+              access.
+            </div>
+          </div>
+          <div class="feature-card">
+            <div class="feature-icon fi6">
+              <i class="fas fa-bell" style="color: var(--accent3)"></i>
+            </div>
+            <div class="feature-title">Instant Alerts</div>
+            <div class="feature-desc">
+              Never miss a drop — get notified the moment new content goes live.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── ABOUT SECTION ─── -->
+    <section id="about">
+      <div class="container">
+        <div class="about-grid">
+          <div class="about-visual reveal">
+            <div class="about-card-main">
+              <div class="channel-avatar"><i class="fas fa-bolt"></i></div>
+              <div class="channel-name">TechnoHub</div>
+              <div class="channel-handle">@technohub · YouTube Channel</div>
+              <p
+                style="
+                  color: var(--text-muted);
+                  font-size: 0.9rem;
+                  line-height: 1.7;
+                "
+              >
+                Dedicated to making advanced technology accessible to everyone.
+                We break down complex topics into digestible, engaging content.
+              </p>
+              <div class="channel-stats-row">
+                <div class="cs">
+                  <span class="cs-num">8K+</span
+                  ><span class="cs-label">Subs</span>
+                </div>
+                <div class="cs">
+                  <span class="cs-num">150+</span
+                  ><span class="cs-label">Videos</span>
+                </div>
+                <div class="cs">
+                  <span class="cs-num">3M+</span
+                  ><span class="cs-label">Views</span>
+                </div>
+                <div class="cs">
+                  <span class="cs-num">2021</span
+                  ><span class="cs-label">Since</span>
+                </div>
+              </div>
+            </div>
+            <div class="about-floating af1">
+              <i class="fas fa-award fa-lg"></i>
+              <div class="af-text">
+                <span>Top Tech Creator</span>
+                <small>Verified Channel · 2024</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="about-text reveal">
+            <span class="section-tag">Our Story</span>
+            <h2>
+              Powering the
+              <span style="color: var(--accent)">Tech-Curious</span> Mind
+            </h2>
+            <p>
+              TechnoHub was born from a simple idea: technology should be
+              understood, not feared. We started as a small YouTube channel in
+              2021 and have grown into a community of over 8,000 passionate
+              technologists, developers, and curious minds.
+            </p>
+            <p>
+              From AI breakthroughs to hands-on coding tutorials, every video is
+              produced with the sole purpose of empowering you with knowledge
+              that matters in the real world.
+            </p>
+            <div class="about-tags">
+              <span class="tag-chip">Artificial Intelligence</span>
+              <span class="tag-chip">Web Development</span>
+              <span class="tag-chip">Cybersecurity</span>
+              <span class="tag-chip">Open Source</span>
+              <span class="tag-chip">Cloud Computing</span>
+              <span class="tag-chip">Machine Learning</span>
+            </div>
+            <button
+              class="btn-primary"
+              onclick="
+                window.open('https://www.youtube.com/@TechnoHub04', '_blank')
+              "
+            >
+              <i class="fab fa-youtube"></i> Visit Channel
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── TEAM SECTION ─── -->
+    <section id="team">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">The Crew</span>
+          <h2 class="section-title">
+            Meet the <span style="color: var(--accent)">Team</span>
+          </h2>
+          <p class="section-desc">
+            The passionate humans behind every video, edit, and algorithm.
+          </p>
+          <div class="accent-line"></div>
+        </div>
+        <div class="team-grid reveal">
+          <div class="team-card">
+            <div class="team-avatar ta1">👨‍💻</div>
+            <div class="team-name">Satyam Jha</div>
+            <div class="team-role">Founder & Lead Creator</div>
+            <div class="team-bio">
+              5+ years in software engineering. Passionate about AI and making
+              tech accessible for everyone.
+            </div>
+            <div class="team-socials">
+              <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-link"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+              <a href="#" class="social-link"><i class="fab fa-github"></i></a>
+            </div>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar ta2">👩‍🎨</div>
+            <div class="team-name">Shresth Yadav</div>
+            <div class="team-role">Creative Director</div>
+            <div class="team-bio">
+              Visual storyteller and motion designer. Crafts the aesthetic
+              identity of every TechnoHub video.
+            </div>
+            <div class="team-socials">
+              <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-link"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="social-link"
+                ><i class="fab fa-dribbble"></i
+              ></a>
+            </div>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar ta3">👨‍🔬</div>
+            <div class="team-name">Rohan Verma</div>
+            <div class="team-role">Technical Researcher</div>
+            <div class="team-bio">
+              PhD in Computer Science. Deep expertise in ML, cryptography, and
+              emerging hardware tech.
+            </div>
+            <div class="team-socials">
+              <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-link"
+                ><i class="fab fa-linkedin"></i
+              ></a>
+              <a href="#" class="social-link"><i class="fas fa-globe"></i></a>
+            </div>
+          </div>
+          <div class="team-card">
+            <div class="team-avatar ta4">👩‍💼</div>
+            <div class="team-name">Kavya Singh</div>
+            <div class="team-role">Community Manager</div>
+            <div class="team-bio">
+              Keeps our 8K+ community engaged, moderated, and growing. The
+              heartbeat of TechnoHub.
+            </div>
+            <div class="team-socials">
+              <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-link"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a href="#" class="social-link"><i class="fab fa-discord"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── MEMBERSHIP SECTION ─── -->
+    <section id="membership">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Join Us</span>
+          <h2 class="section-title">
+            Pick Your <span style="color: var(--accent)">Plan</span>
+          </h2>
+          <p class="section-desc">
+            Level up your access. Get exclusive content, community perks, and
+            more.
+          </p>
+          <div class="accent-line"></div>
+        </div>
+        <div class="plans-grid reveal">
+          <div class="plan-card">
+            <div class="plan-name">Starter</div>
+            <div class="plan-price">
+              <div class="price-num"><sup>₹</sup>0<span>/mo</span></div>
+            </div>
+            <div class="plan-divider"></div>
+            <ul class="plan-features">
+              <li><i class="fas fa-check"></i> All public videos</li>
+              <li><i class="fas fa-check"></i> Community access</li>
+              <li><i class="fas fa-check"></i> Weekly newsletter</li>
+              <li class="unavailable">
+                <i class="fas fa-times"></i> Exclusive content
+              </li>
+              <li class="unavailable">
+                <i class="fas fa-times"></i> Source code access
+              </li>
+              <li class="unavailable">
+                <i class="fas fa-times"></i> Early video access
+              </li>
+            </ul>
+            <button class="btn-plan" onclick="handleSubscribe()">
+              Subscribe Free
+            </button>
+          </div>
+
+          <div class="plan-card featured">
+            <div class="plan-badge">Most Popular</div>
+            <div class="plan-name">Pro Member</div>
+            <div class="plan-price">
+              <div class="price-num"><sup>₹</sup>99<span>/mo</span></div>
+            </div>
+            <div class="plan-divider"></div>
+            <ul class="plan-features">
+              <li><i class="fas fa-check"></i> Everything in Starter</li>
+              <li><i class="fas fa-check"></i> Early video access</li>
+              <li><i class="fas fa-check"></i> Exclusive tutorials</li>
+              <li><i class="fas fa-check"></i> Full source code packs</li>
+              <li><i class="fas fa-check"></i> Early video access</li>
+              <li class="unavailable">
+                <i class="fas fa-times"></i> 1-on-1 sessions
+              </li>
+            </ul>
+            <button class="btn-plan featured-btn">Get Pro →</button>
+          </div>
+
+          <div class="plan-card">
+            <div class="plan-name">Elite</div>
+            <div class="plan-price">
+              <div class="price-num"><sup>₹</sup>499<span>/mo</span></div>
+            </div>
+            <div class="plan-divider"></div>
+            <ul class="plan-features">
+              <li><i class="fas fa-check"></i> Everything in Pro</li>
+              <li><i class="fas fa-check"></i> Monthly live Q&A</li>
+              <li><i class="fas fa-check"></i> 1-on-1 mentorship</li>
+              <li><i class="fas fa-check"></i> Custom project review</li>
+              <li><i class="fas fa-check"></i> Founding member badge</li>
+              <li><i class="fas fa-check"></i> Priority support</li>
+            </ul>
+            <button class="btn-plan">Go Elite →</button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── CONTACT SECTION ─── -->
+    <section id="contact">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Get In Touch</span>
+          <h2 class="section-title">
+            Contact <span style="color: var(--accent)">Us</span>
+          </h2>
+          <p class="section-desc">
+            Collaborations, sponsorships, or just want to say hi — we'd love to
+            hear from you.
+          </p>
+          <div class="accent-line"></div>
+        </div>
+        <div class="contact-grid">
+          <div class="contact-info reveal">
+            <h3>Let's <span style="color: var(--accent)">Connect</span></h3>
+            <p>
+              We're always open to collaborations, brand partnerships, and
+              hearing from our community. Drop us a message and we'll get back
+              within 24 hours.
+            </p>
+            <div class="contact-items">
+              <div class="contact-item">
+                <div class="ci-icon"><i class="fab fa-instagram"></i></div>
+                <div class="ci-text">
+                  <span>Instagram</span><small>@im_satyamjha</small>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="ci-icon"><i class="fas fa-envelope"></i></div>
+                <div class="ci-text">
+                  <span>Email</span><small>Technohub04official@gmail.com</small>
+                </div>
+              </div>
+              <div class="contact-item">
+                <div class="ci-icon"><i class="fab fa-instagram"></i></div>
+                <div class="ci-text">
+                  <span>Instagram Page</span><small>@technohub004</small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="contact-form reveal">
+            <div class="form-row">
+              <div class="form-group">
+                <label>Your Name</label>
+                <input type="text" placeholder="Arjun Sharma" />
+              </div>
+              <div class="form-group">
+                <label>Email Address</label>
+                <input type="email" placeholder="hello@example.com" />
+              </div>
+            </div>
+            <div class="form-group">
+              <label>Subject</label>
+              <select>
+                <option>Collaboration / Sponsorship</option>
+                <option>Content Suggestion</option>
+                <option>Membership Inquiry</option>
+                <option>Technical Support</option>
+                <option>Other</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label>Message</label>
+              <textarea placeholder="Tell us what's on your mind..."></textarea>
+            </div>
+            <button class="btn-send" onclick="sendMessage()">
+              <i class="fas fa-paper-plane"></i> Send Message
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── FOOTER ─── -->
+    <footer>
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-brand">
+            <a
+              class="nav-logo"
+              href="#hero"
+              style="display: inline-flex; margin-bottom: 1rem"
+            >
+              <div class="logo-icon"><i class="fas fa-bolt"></i></div>
+              <span class="logo-text">TechnoHub</span>
+            </a>
+            <p>
+              Your ultimate destination for tech tutorials, reviews, and the
+              latest in technology. Empowering 8,000+ learners daily.
+            </p>
+            <div class="footer-socials">
+              <a href="https://www.youtube.com/@TechnoHub04" target="_blank" class="fsocial"><i class="fab fa-youtube"></i></a>
+              <a href="https://www.instagram.com/im_satyamjha/" target="_blank" class="fsocial"><i class="fab fa-instagram"></i></a>
+              <a href="https://www.instagram.com/technohub004/" target="_blank" class="fsocial"><i class="fas fa-camera"></i></a>
+            </div>
+          </div>
+          <div class="footer-col">
+            <h4>Content</h4>
+            <ul class="footer-links">
+              <li><a href="#videos">Latest Videos</a></li>
+              <li><a href="#">AI & Machine Learning</a></li>
+              <li><a href="#">Web Development</a></li>
+              <li><a href="#">Product Reviews</a></li>
+              <li><a href="#">Tech News</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Channel</h4>
+            <ul class="footer-links">
+              <li><a href="#about">About Us</a></li>
+              <li><a href="#team">Our Team</a></li>
+              <li><a href="#membership">Membership</a></li>
+              <li><a href="#">Press Kit</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-col">
+            <h4>Legal</h4>
+            <ul class="footer-links">
+              <li><a href="#">Privacy Policy</a></li>
+              <li><a href="#">Terms of Use</a></li>
+              <li><a href="#">Cookie Policy</a></li>
+              <li><a href="#">Disclaimer</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>
+            © 2025 TechnoHub. All rights reserved. Built with ⚡ for the tech
+            community.
+          </p>
+          <p
+            style="
+              color: var(--accent);
+              font-family: var(--font-body);
+              font-size: 0.75rem;
+            "
+          >
+            8,000+ SUBSCRIBERS & GROWING
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    <button
+      id="backTop"
+      onclick="window.scrollTo({ top: 0, behavior: 'smooth' })"
+    >
+      <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+  </body>
+</html>
