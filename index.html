@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Techno Hub</title>
+    <title>TechnoHub — Technology Reimagined</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
@@ -14,7 +14,16 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="style.css" />
+    <!-- GOOGLE ADSENSE: Replace ca-pub-XXXXXXXXXXXXXXXX with your Publisher ID -->
+    <!-- Get from: https://adsense.google.com after approval -->
+    <script
+      async
+      src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-XXXXXXXXXXXXXXXX"
+      crossorigin="anonymous"
+    ></script>
+    <!-- RAZORPAY -->
+    <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
   </head>
   <body>
     <!-- ─── THEME MODAL ─── -->
@@ -99,7 +108,11 @@
       </a>
 
       <ul class="nav-links">
-        <li><a href="#hero" class="nav-home-btn"><i class="fas fa-home"></i> Home</a></li>
+        <li>
+          <a href="#hero" class="nav-home-btn"
+            ><i class="fas fa-home"></i> Home</a
+          >
+        </li>
         <li><a href="#theme">Theme</a></li>
         <li><a href="#videos">Videos</a></li>
         <li><a href="#features">Features</a></li>
@@ -198,7 +211,10 @@
         <div>
           <div class="ticker-label">Subscribers & Growing</div>
         </div>
-        <i class="fas fa-arrow-trend-up" style="color: var(--accent); font-size: 0.9rem"></i>
+        <i
+          class="fas fa-arrow-trend-up"
+          style="color: var(--accent); font-size: 0.9rem"
+        ></i>
       </div>
     </section>
 
@@ -247,6 +263,29 @@
       </div>
     </section>
 
+    <!-- ─── ADSENSE BANNER AD (after hero) ─── -->
+    <div
+      style="
+        text-align: center;
+        padding: 1rem 1rem 0;
+        max-width: 970px;
+        margin: 0 auto;
+      "
+    >
+      <!-- Replace with your real AdSense ad unit code after approval -->
+      <ins
+        class="adsbygoogle"
+        style="display: block"
+        data-ad-client="ca-pub-XXXXXXXXXXXXXXXX"
+        data-ad-slot="XXXXXXXXXX"
+        data-ad-format="auto"
+        data-full-width-responsive="true"
+      ></ins>
+      <script>
+        (adsbygoogle = window.adsbygoogle || []).push({});
+      </script>
+    </div>
+
     <!-- ─── VIDEOS SECTION ─── -->
     <section id="videos">
       <div class="container">
@@ -262,49 +301,187 @@
         </div>
 
         <div class="video-tabs reveal" id="videoTabs">
-          <button class="tab-btn active" onclick="filterVideos('all', this)">All Videos</button>
-          <button class="tab-btn" onclick="filterVideos('shorts', this)">Shorts</button>
-          <button class="tab-btn" onclick="filterVideos('long', this)">Full Videos</button>
+          <button class="tab-btn active" onclick="filterVideos('all', this)">
+            All Videos
+          </button>
+          <button class="tab-btn" onclick="filterVideos('shorts', this)">
+            Shorts
+          </button>
+          <button class="tab-btn" onclick="filterVideos('long', this)">
+            Full Videos
+          </button>
         </div>
 
         <!-- Loading state -->
-        <div id="videosLoading" style="text-align:center;padding:4rem 0;">
-          <div style="display:inline-flex;align-items:center;gap:12px;background:rgba(0,212,255,0.05);border:1px solid var(--border);border-radius:50px;padding:14px 28px;">
-            <i class="fas fa-spinner fa-spin" style="color:var(--accent);font-size:1.2rem;"></i>
-            <span style="color:var(--text-muted);font-size:0.9rem;letter-spacing:1px;">Loading videos from YouTube...</span>
+        <div id="videosLoading" style="text-align: center; padding: 4rem 0">
+          <div
+            style="
+              display: inline-flex;
+              align-items: center;
+              gap: 12px;
+              background: rgba(0, 212, 255, 0.05);
+              border: 1px solid var(--border);
+              border-radius: 50px;
+              padding: 14px 28px;
+            "
+          >
+            <i
+              class="fas fa-spinner fa-spin"
+              style="color: var(--accent); font-size: 1.2rem"
+            ></i>
+            <span
+              style="
+                color: var(--text-muted);
+                font-size: 0.9rem;
+                letter-spacing: 1px;
+              "
+              >Loading videos from YouTube...</span
+            >
           </div>
         </div>
 
         <!-- Error state -->
-        <div id="videosError" style="display:none;text-align:center;padding:3rem 0;">
-          <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:16px;padding:2.5rem;max-width:500px;margin:0 auto;">
-            <i class="fab fa-youtube" style="font-size:3rem;color:var(--accent2);margin-bottom:1rem;display:block;"></i>
-            <p style="color:var(--text-muted);margin-bottom:1.5rem;line-height:1.7;">To show live videos, add your YouTube Data API key below. Get one free at <a href="https://console.cloud.google.com/" target="_blank" style="color:var(--accent);">Google Cloud Console</a>.</p>
-            <div style="display:flex;gap:8px;margin-bottom:1rem;">
-              <input id="apiKeyInput" type="text" placeholder="Paste your YouTube API key here..." style="flex:1;background:rgba(0,212,255,0.04);border:1px solid var(--border);border-radius:10px;padding:10px 14px;color:var(--text-primary);font-family:var(--font-body);font-size:0.88rem;outline:none;" />
-              <button onclick="saveApiKey()" style="background:linear-gradient(135deg,var(--accent),var(--accent3));border:none;border-radius:10px;padding:10px 18px;color:#000;font-weight:700;cursor:pointer;white-space:nowrap;">Load</button>
+        <div
+          id="videosError"
+          style="display: none; text-align: center; padding: 3rem 0"
+        >
+          <div
+            style="
+              background: var(--bg-card);
+              border: 1px solid var(--border);
+              border-radius: 16px;
+              padding: 2.5rem;
+              max-width: 500px;
+              margin: 0 auto;
+            "
+          >
+            <i
+              class="fab fa-youtube"
+              style="
+                font-size: 3rem;
+                color: var(--accent2);
+                margin-bottom: 1rem;
+                display: block;
+              "
+            ></i>
+            <p
+              style="
+                color: var(--text-muted);
+                margin-bottom: 1.5rem;
+                line-height: 1.7;
+              "
+            >
+              To show live videos, add your YouTube Data API key below. Get one
+              free at
+              <a
+                href="https://console.cloud.google.com/"
+                target="_blank"
+                style="color: var(--accent)"
+                >Google Cloud Console</a
+              >.
+            </p>
+            <div style="display: flex; gap: 8px; margin-bottom: 1rem">
+              <input
+                id="apiKeyInput"
+                type="text"
+                placeholder="Paste your YouTube API key here..."
+                style="
+                  flex: 1;
+                  background: rgba(0, 212, 255, 0.04);
+                  border: 1px solid var(--border);
+                  border-radius: 10px;
+                  padding: 10px 14px;
+                  color: var(--text-primary);
+                  font-family: var(--font-body);
+                  font-size: 0.88rem;
+                  outline: none;
+                "
+              />
+              <button
+                onclick="saveApiKey()"
+                style="
+                  background: linear-gradient(
+                    135deg,
+                    var(--accent),
+                    var(--accent3)
+                  );
+                  border: none;
+                  border-radius: 10px;
+                  padding: 10px 18px;
+                  color: #000;
+                  font-weight: 700;
+                  cursor: pointer;
+                  white-space: nowrap;
+                "
+              >
+                Load
+              </button>
             </div>
-            <p style="font-size:0.75rem;color:var(--text-muted);">Or <a href="https://www.youtube.com/@TechnoHub04/videos" target="_blank" style="color:var(--accent);">browse all videos directly on YouTube →</a></p>
+            <p style="font-size: 0.75rem; color: var(--text-muted)">
+              Or
+              <a
+                href="https://www.youtube.com/@TechnoHub04/videos"
+                target="_blank"
+                style="color: var(--accent)"
+                >browse all videos directly on YouTube →</a
+              >
+            </p>
           </div>
         </div>
 
-        <div class="videos-grid reveal" id="videosGrid" style="display:none;"></div>
+        <div
+          class="videos-grid reveal"
+          id="videosGrid"
+          style="display: none"
+        ></div>
 
         <!-- Load more -->
-        <div id="loadMoreWrap" style="display:none;text-align:center;margin-top:2.5rem;">
-          <button onclick="loadMoreVideos()" style="background:rgba(0,212,255,0.08);border:1px solid var(--accent);border-radius:30px;padding:12px 32px;color:var(--accent);font-family:var(--font-body);font-size:0.88rem;font-weight:700;letter-spacing:1px;text-transform:uppercase;cursor:pointer;transition:all 0.3s;" onmouseover="this.style.background='rgba(0,212,255,0.18)'" onmouseout="this.style.background='rgba(0,212,255,0.08)'">
-            <i class="fas fa-plus" style="margin-right:8px;"></i>Load More Videos
+        <div
+          id="loadMoreWrap"
+          style="display: none; text-align: center; margin-top: 2.5rem"
+        >
+          <button
+            onclick="loadMoreVideos()"
+            style="
+              background: rgba(0, 212, 255, 0.08);
+              border: 1px solid var(--accent);
+              border-radius: 30px;
+              padding: 12px 32px;
+              color: var(--accent);
+              font-family: var(--font-body);
+              font-size: 0.88rem;
+              font-weight: 700;
+              letter-spacing: 1px;
+              text-transform: uppercase;
+              cursor: pointer;
+              transition: all 0.3s;
+            "
+            onmouseover="this.style.background = 'rgba(0,212,255,0.18)'"
+            onmouseout="this.style.background = 'rgba(0,212,255,0.08)'"
+          >
+            <i class="fas fa-plus" style="margin-right: 8px"></i>Load More
+            Videos
           </button>
-          <div style="margin-top:1rem;">
-            <a href="https://www.youtube.com/@TechnoHub04/videos" target="_blank" style="color:var(--text-muted);font-size:0.82rem;text-decoration:none;letter-spacing:1px;" onmouseover="this.style.color='var(--accent)'" onmouseout="this.style.color='var(--text-muted)'">
-              <i class="fab fa-youtube" style="margin-right:6px;"></i>View All on YouTube
+          <div style="margin-top: 1rem">
+            <a
+              href="https://www.youtube.com/@TechnoHub04/videos"
+              target="_blank"
+              style="
+                color: var(--text-muted);
+                font-size: 0.82rem;
+                text-decoration: none;
+                letter-spacing: 1px;
+              "
+              onmouseover="this.style.color = 'var(--accent)'"
+              onmouseout="this.style.color = 'var(--text-muted)'"
+            >
+              <i class="fab fa-youtube" style="margin-right: 6px"></i>View All
+              on YouTube
             </a>
           </div>
         </div>
       </div>
     </section>
-
-    
 
     <!-- ─── FEATURES SECTION ─── -->
     <section id="features">
@@ -360,7 +537,8 @@
             </div>
             <div class="feature-title">Active Community</div>
             <div class="feature-desc">
-              Join 8,000+ techies in our comment sections and stay connected on Instagram.
+              Join 8,000+ techies in our comment sections and stay connected on
+              Instagram.
             </div>
           </div>
           <div class="feature-card">
@@ -599,7 +777,7 @@
             <div class="plan-badge">Most Popular</div>
             <div class="plan-name">Pro Member</div>
             <div class="plan-price">
-              <div class="price-num"><sup>₹</sup>99<span>/mo</span></div>
+              <div class="price-num"><sup>₹</sup>49<span>/mo</span></div>
             </div>
             <div class="plan-divider"></div>
             <ul class="plan-features">
@@ -612,13 +790,18 @@
                 <i class="fas fa-times"></i> 1-on-1 sessions
               </li>
             </ul>
-            <button class="btn-plan featured-btn">Get Pro →</button>
+            <button
+              class="btn-plan featured-btn"
+              onclick="payWithRazorpay(49, 'Pro Member')"
+            >
+              Get Pro — ₹49/mo →
+            </button>
           </div>
 
           <div class="plan-card">
             <div class="plan-name">Elite</div>
             <div class="plan-price">
-              <div class="price-num"><sup>₹</sup>499<span>/mo</span></div>
+              <div class="price-num"><sup>₹</sup>149<span>/mo</span></div>
             </div>
             <div class="plan-divider"></div>
             <ul class="plan-features">
@@ -629,7 +812,9 @@
               <li><i class="fas fa-check"></i> Founding member badge</li>
               <li><i class="fas fa-check"></i> Priority support</li>
             </ul>
-            <button class="btn-plan">Go Elite →</button>
+            <button class="btn-plan" onclick="payWithRazorpay(149, 'Elite')">
+              Go Elite — ₹149/mo →
+            </button>
           </div>
         </div>
       </div>
@@ -712,6 +897,155 @@
       </div>
     </section>
 
+    <!-- ─── AFFILIATE SECTION ─── -->
+    <section id="affiliate" style="padding: 5rem 0">
+      <div class="container">
+        <div class="section-header reveal">
+          <span class="section-tag">Deals & Recommendations</span>
+          <h2 class="section-title">
+            Top <span style="color: var(--accent)">Tech Picks</span>
+          </h2>
+          <p class="section-desc">
+            Products we personally use and recommend. Buying through these links
+            supports TechnoHub at no extra cost to you.
+          </p>
+          <div class="accent-line"></div>
+        </div>
+        <div class="affiliate-grid reveal">
+          <!-- Card 1 -->
+          <div class="aff-card">
+            <div class="aff-badge">Amazon</div>
+            <div class="aff-emoji">💻</div>
+            <div class="aff-title">Best Budget Laptop 2026</div>
+            <div class="aff-desc">
+              Perfect for coding, editing & everyday use. Great performance
+              under ₹35,000.
+            </div>
+            <div class="aff-price">Starting ₹28,999</div>
+            <a href="https://amzn.to/4v3xWOj" target="_blank" class="aff-btn">
+              <i class="fab fa-amazon"></i> Buy on Amazon
+            </a>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="aff-card">
+            <div class="aff-badge">Amazon</div>
+            <div class="aff-emoji">🎧</div>
+            <div class="aff-title">Noise Cancelling Headphones</div>
+            <div class="aff-desc">
+              Best headphones for studying, coding & content creation.
+            </div>
+            <div class="aff-price">Starting ₹1,999</div>
+            <a href="https://amzn.to/43qncxn" target="_blank" class="aff-btn">
+              <i class="fab fa-amazon"></i> Buy on Amazon
+            </a>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="aff-card">
+            <div class="aff-badge">Amazon</div>
+            <div class="aff-emoji">📱</div>
+            <div class="aff-title">Best Smartphone Under ₹15K</div>
+            <div class="aff-desc">
+              Top pick for camera quality, battery & performance.
+            </div>
+            <div class="aff-price">Starting ₹12,999</div>
+            <a
+              href="https://amzn.to/3RR6bde"
+              target="_blank"
+              class="aff-btn fk-btn"
+            >
+              <i class="fas fa-shopping-bag"></i> Buy on Amazon
+            </a>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="aff-card">
+            <div class="aff-badge">Amazon</div>
+            <div class="aff-emoji">⌨️</div>
+            <div class="aff-title">Mechanical Keyboard</div>
+            <div class="aff-desc">
+              Satisfying to type on. Great for programmers & content creators.
+            </div>
+            <div class="aff-price">Starting ₹2,499</div>
+            <a href="https://amzn.to/4uZ8JnW" target="_blank" class="aff-btn">
+              <i class="fab fa-amazon"></i> Buy on Amazon
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── NEWSLETTER SECTION ─── -->
+    <section id="newsletter" style="padding: 4rem 0">
+      <div class="container">
+        <div class="newsletter-box reveal">
+          <div class="nl-left">
+            <div class="nl-icon"><i class="fas fa-envelope-open-text"></i></div>
+            <div>
+              <h3 class="nl-title">Join the TechnoHub Newsletter</h3>
+              <p class="nl-sub">
+                Weekly tech tips, exclusive deals & early video alerts —
+                straight to your inbox. 100% free, no spam.
+              </p>
+              <div class="nl-badges">
+                <span><i class="fas fa-check-circle"></i> Free forever</span>
+                <span><i class="fas fa-check-circle"></i> No spam</span>
+                <span
+                  ><i class="fas fa-check-circle"></i> Unsubscribe anytime</span
+                >
+              </div>
+            </div>
+          </div>
+          <div class="nl-right">
+            <div class="nl-form" id="nlForm">
+              <input
+                type="text"
+                id="nlName"
+                placeholder="Your Name"
+                class="nl-input"
+              />
+              <input
+                type="email"
+                id="nlEmail"
+                placeholder="Your Email Address"
+                class="nl-input"
+              />
+              <button class="nl-btn" onclick="subscribeNewsletter()">
+                <i class="fas fa-paper-plane"></i> Subscribe Now
+              </button>
+            </div>
+            <div
+              id="nlSuccess"
+              style="display: none; text-align: center; padding: 1.5rem"
+            >
+              <i
+                class="fas fa-check-circle"
+                style="
+                  font-size: 2.5rem;
+                  color: var(--accent);
+                  margin-bottom: 0.75rem;
+                  display: block;
+                "
+              ></i>
+              <p
+                style="
+                  color: var(--text-primary);
+                  font-weight: 600;
+                  margin-bottom: 0.25rem;
+                "
+              >
+                You're subscribed! 🎉
+              </p>
+              <p style="color: var(--text-muted); font-size: 0.85rem">
+                Check your inbox for a confirmation email.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- ─── FOOTER ─── -->
     <footer>
       <div class="container">
@@ -730,19 +1064,58 @@
               latest in technology. Empowering 8,000+ learners daily.
             </p>
             <div class="footer-socials">
-              <a href="https://www.youtube.com/@TechnoHub04" target="_blank" class="fsocial"><i class="fab fa-youtube"></i></a>
-              <a href="https://www.instagram.com/im_satyamjha/" target="_blank" class="fsocial"><i class="fab fa-instagram"></i></a>
-              <a href="https://www.instagram.com/technohub004/" target="_blank" class="fsocial"><i class="fas fa-camera"></i></a>
+              <a
+                href="https://www.youtube.com/@TechnoHub04"
+                target="_blank"
+                class="fsocial"
+                ><i class="fab fa-youtube"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/im_satyamjha/"
+                target="_blank"
+                class="fsocial"
+                ><i class="fab fa-instagram"></i
+              ></a>
+              <a
+                href="https://www.instagram.com/technohub004/"
+                target="_blank"
+                class="fsocial"
+                ><i class="fas fa-camera"></i
+              ></a>
             </div>
           </div>
           <div class="footer-col">
             <h4>Content</h4>
             <ul class="footer-links">
-              <li><a href="#videos">Latest Videos</a></li>
-              <li><a href="#">AI & Machine Learning</a></li>
-              <li><a href="#">Web Development</a></li>
-              <li><a href="#">Product Reviews</a></li>
-              <li><a href="#">Tech News</a></li>
+              <li>
+                <a href="https://www.youtube.com/@TechnoHub04/videos"
+                  >Latest Videos</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.youtube.com/playlist?list=PL0vnRWflcYj4EiTHkeOZG6JcBCuODedND"
+                  >Google Chorme</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.youtube.com/playlist?list=PL0vnRWflcYj4puHVUKHESzL1QxI127fZx"
+                  >Whatsapp</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.youtube.com/playlist?list=PL0vnRWflcYj7XrfidkgtHv10Bxht2Kp3w"
+                  >Product Reviews</a
+                >
+              </li>
+              <li>
+                <a
+                  href="https://www.youtube.com/playlist?list=PL0vnRWflcYj7PEbtjyGUWQFCjoqNbZHm1"
+                  >Short videos</a
+                >
+              </li>
             </ul>
           </div>
           <div class="footer-col">
@@ -751,7 +1124,7 @@
               <li><a href="#about">About Us</a></li>
               <li><a href="#team">Our Team</a></li>
               <li><a href="#membership">Membership</a></li>
-              <li><a href="#">Press Kit</a></li>
+
               <li><a href="#contact">Contact</a></li>
             </ul>
           </div>
